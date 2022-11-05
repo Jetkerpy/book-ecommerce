@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Home{% endblock %}
+{% block title %}BookStore{% endblock %}
 
 {% block content %}
 
-<style>
-    .give_me_margin{
-        margin-top: 50px;
-    }
-</style>
+
 
     <main class="px-3 mt-4 text-center">
         <h1>Search,Read,Buy,Review</h1>
@@ -19,7 +15,7 @@
         </p>
     </main>
 
-    <h3 class="text-center my-4">All Books</h3>
+    <h3 class="text-center my-4 all-books">All Books</h3>
     <div class="mt-2 row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
         {% for product in products %}
         <div class="col">
@@ -31,7 +27,7 @@
                 <div class="btn-group">
                 <a href="{{ product.get_absolute_url }}" class="btn btn-sm btn-outline-secondary">View</a>
                 </div>
-                <small class="text-muted">9 mins</small>
+                <!-- <small class="text-muted">9 mins</small> -->
             </div>
             </div>
         </div>

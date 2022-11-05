@@ -54,9 +54,17 @@ class TestViewResponses(TestCase):
     def test_url_allowed_hosts(self):
         """
         Test allowed hosts
+
         """
-        response = self.c.get('/')
+        response = self.c.get('/', HTTP_HOST = 'nooaddress.co')
+        self.assertEqual(response.status_code, 400)
+
+        response = self.c.get('/', HTTP_HOST = 'yourdomain.com')
         self.assertEqual(response.status_code, 200)
+
+        #
+
+
 
 
 
@@ -80,7 +88,7 @@ class TestViewResponses(TestCase):
         response = all_products(request)
         html = response.content.decode('utf8') #bul home htmldi html koriniste qaytaradi
         # print(html)
-        self.assertIn('<title>Home</title>', html)
+        self.assertIn('<title>BookStore</title>', html)
         self.assertEqual(response.status_code, 200)
 
 

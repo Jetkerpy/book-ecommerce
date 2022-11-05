@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h()wz3*f+0r-nj6v1b2evk^7*%7g9&y9d$-$wy6ilg45r4gdz1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yourdomain.com', '127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store.apps.StoreConfig',
+    'basket.apps.BasketConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -64,7 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'store.views.categories',
+                #'store.views.categories',
+                'store.context_processors.categories',
             ],
         },
     },
@@ -120,6 +123,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 #we created media for images and tomendegide bar
 MEDIA_URL = '/media/'
